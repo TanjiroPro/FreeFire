@@ -2,7 +2,7 @@ import {watchFile, unwatchFile} from 'fs';
 import chalk from 'chalk';
 import {fileURLToPath} from 'url';
 import fs from 'fs'; 
-//import cheerio from 'cheerio';
+import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import axios from 'axios';
 import moment from 'moment-timezone';
@@ -32,7 +32,7 @@ global.libreria = 'Baileys'
 global.baileys = 'V 6.7.8'
 global.vs = '2.0'
 global.languaje = 'Español'
-global.nameqr = 'Mafia Bot
+global.nameqr = 'Mafia'
 global.sessions = 'mafiaSession'
 global.jadi = 'mafiaJadiBot'
 global.mafiaJadibts = true
@@ -77,7 +77,7 @@ global.multiplier = 70
 
 //*─ׄ─ׅ─ׄ─✞─ׄ─ׅ─ׄ─✞─ׄ─ׅ─ׄ─✞─ׄ─ׅ─ׄ─✞─ׄ─ׅ─ׄ─✞─ׄ─ׅ─ׄ─*
 
-//global.cheerio = cheerio
+global.cheerio = cheerio
 global.fs = fs
 global.fetch = fetch
 global.axios = axios
