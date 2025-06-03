@@ -325,7 +325,7 @@ if (opts['nyimak']) return;
 if (!isROwner && opts['self']) return;
 if (opts['pconly'] && m.chat.endsWith('g.us')) return;
 if (opts['gconly'] && !m.chat.endsWith('g.us')) {
-const allowedInPrivateForUsers = ['serbot', 'serbot --code', 'menu', 'info'];
+const allowedInPrivateForUsers = ['qr', 'serbot', 'menu', 'info'];
 if (!isOwner && !allowedInPrivateForUsers.includes(command)) {
 return
 }}
@@ -423,7 +423,9 @@ console.error(e)
 if (e) {
 let text = format(e)
 // for (let key of Object.values(global.APIKeys))
-text = text.replace(new RegExp(key, 'g'), 'Admin')
+for (let key of Object.keys(global.APIKeys || {})) {
+  text = text.replace(new RegExp(key, 'g'), 'Admin')
+}
 if (e.name)
 m.reply(text)
 }} finally {
@@ -494,15 +496,13 @@ if (opts['autoread']) await this.readMessages([m.key])
 
 global.dfail = (type, m, conn) => {
 const msg = {
-  rowner: '「 Mafia Creador 🇵🇪 」 ⫸ *𝙰𝚌𝚌𝚎𝚜𝚘 𝚎𝚡𝚌𝚕𝚞𝚜𝚒𝚟𝚘 𝚍𝚎 𝚖𝚒 𝙲𝚁𝙴𝙰𝙳𝙾𝚁 𝚜𝚞𝚙𝚛𝚎𝚖𝚘.*\n\n> Mafia 🇵🇪.',
-  owner:  '「 Mafia Dev 🇵🇪 」 ⫸ *𝙵𝚞𝚗𝚌𝚒ó𝚗 𝚋𝚕𝚘𝚚𝚞𝚎𝚊𝚍𝚊 𝚜𝚘𝚕𝚘 𝚙𝚊𝚛𝚊 𝚎𝚕 𝙳𝙴𝚂𝙰𝚁𝚁𝙾𝙻𝙻𝙰𝙳𝙾𝚁.*',
-  premium: '「 Mafia Vip 🇵🇪 」 ⫸ *𝚂𝚘𝚕𝚘 𝚞𝚜𝚞𝚊𝚛𝚒𝚘𝚜 𝙿𝚁𝙴𝙼𝙸𝚄𝙼 𝚙𝚞𝚎𝚍𝚎𝚗 𝚎𝚓𝚎𝚌𝚞𝚝𝚊𝚛 𝚎𝚜𝚝𝚘.*',
-  private: '「 Mafia Privado 🇵🇪 」 ⫸ *𝙴𝚜𝚝𝚎 𝚌𝚘𝚖𝚊𝚗𝚍𝚘 𝚜𝚘𝚕𝚘 𝚏𝚞𝚗𝚌𝚒𝚘𝚗𝚊 𝚎𝚗 𝚌𝚑𝚊𝚝𝚜 𝙿𝚁𝙸𝚅𝙰𝙳𝙾𝚂.*',
-  admin: '「 Mafia Admin 🇵🇪 」 ⫸ *𝚂𝚘𝚕𝚘 𝚕𝚘𝚜 𝙰𝙳𝙼𝙸𝙽𝙸𝚂𝚃𝚁𝙰𝙳𝙾𝚁𝙴𝚂 𝚙𝚞𝚎𝚍𝚎𝚗 𝚞𝚜𝚊𝚛 𝚎𝚜𝚝𝚎 𝚌𝚘𝚖𝚊𝚗𝚍𝚘.*',
-  botAdmin: '「 Mafia Bot Admin 🇵🇪 」 ⫸ *𝙽𝚎𝚌𝚎𝚜𝚒𝚝𝚘 𝚙𝚎𝚛𝚖𝚒𝚜𝚘𝚜 𝚍𝚎 𝙰𝙳𝙼𝙸𝙽 𝚙𝚊𝚛𝚊 𝚎𝚓𝚎𝚌𝚞𝚝𝚊𝚛 𝚎𝚜𝚝𝚘.*',
-  unreg: '「 Mafia Registro 🇵🇪 」 ⫸ *¡𝙰𝙲𝙲𝙴𝚂𝙾 𝙳𝙴𝙽𝙴𝙶𝙰𝙳𝙾! 𝙽𝚘 𝚎𝚜𝚝á𝚜 𝚛𝚎𝚐𝚒𝚜𝚝𝚛𝚊𝚍𝚘.*\n\n🧾 𝚄𝚜𝚊: */reg nombre.edad*\n📌 𝙴𝚓𝚎𝚖𝚙𝚕𝚘: */reg Mafia.20*',
-  restrict: '「 Mafia Sistema 🇵🇪 」 ⫸ *𝙴𝚜𝚝𝚊 𝚏𝚞𝚗𝚌𝚒ó𝚗 𝚎𝚜𝚝á 𝙱𝙻𝙾𝚀𝚄𝙴𝙰𝙳𝙰 𝚐𝚕𝚘𝚋𝚊𝚕𝚖𝚎𝚗𝚝𝚎 𝚙𝚘𝚛 𝚜𝚎𝚐𝚞𝚛𝚒𝚍𝚊𝚍.*'
+  rowner: '「🤴 Creador」 ⫸ *𝙰𝚌𝚌𝚎𝚜𝚘 𝚎𝚡𝚌𝚕𝚞𝚜𝚒𝚟𝚘 𝚍𝚎 𝚖𝚒 𝙲𝚁𝙴𝙰𝙳𝙾𝚁 𝚜𝚞𝚙𝚛𝚎𝚖𝚘.*\n\n> 👑 the Carlos.',
+  owner:  '「🥷 𝙳𝚎𝚟」 ⫸ *𝙵𝚞𝚗𝚌𝚒ó𝚗 𝚋𝚕𝚘𝚚𝚞𝚎𝚊𝚍𝚊 𝚜𝚘𝚕𝚘 𝚙𝚊𝚛𝚊 𝚎𝚕 𝙳𝙴𝚂𝙰𝚁𝚁𝙾𝙻𝙻𝙰𝙳𝙾𝚁.*',
+  premium: '「💎 𝚅𝙸𝙿」 ⫸ *𝚂𝚘𝚕𝚘 𝚞𝚜𝚞𝚊𝚛𝚒𝚘𝚜 𝙿𝚁𝙴𝙼𝙸𝚄𝙼 𝚙𝚞𝚎𝚍𝚎𝚗 𝚎𝚓𝚎𝚌𝚞𝚝𝚊𝚛 𝚎𝚜𝚝𝚘.*',
+  private: '「🔒 𝙿𝚛𝚒𝚟𝚊𝚍𝚘」 ⫸ *𝙴𝚜𝚝𝚎 𝚌𝚘𝚖𝚊𝚗𝚍𝚘 𝚜𝚘𝚕𝚘 𝚏𝚞𝚗𝚌𝚒𝚘𝚗𝚊 𝚎𝚗 𝚌𝚑𝚊𝚝𝚜 𝙿𝚁𝙸𝚅𝙰𝙳𝙾𝚂.*',
+  admin: '「🛡 𝙰𝚍𝚖𝚒𝚗」 ⫸ *𝚂𝚘𝚕𝚘 𝚕𝚘𝚜 𝙰𝙳𝙼𝙸𝙽𝙸𝚂𝚃𝚁𝙰𝙳𝙾𝚁𝙴𝚂 𝚙𝚞𝚎𝚍𝚎𝚗 𝚞𝚜𝚊𝚛 𝚎𝚜𝚝𝚎 𝚌𝚘𝚖𝚊𝚗𝚍𝚘.*',
+  botAdmin: '「🚩 𝙱𝚘𝚝 𝙰𝚍𝚖𝚒𝚗」 ⫸ *𝙽𝚎𝚌𝚎𝚜𝚒𝚝𝚘 𝚙𝚎𝚛𝚖𝚒𝚜𝚘𝚜 𝚍𝚎 𝙰𝙳𝙼𝙸𝙽 𝚙𝚊𝚛𝚊 𝚎𝚓𝚎𝚌𝚞𝚝𝚊𝚛 𝚎𝚜𝚝𝚘.*',
+  unreg: '「📛 𝚁𝚎𝚐𝚒𝚜𝚝𝚛𝚘」 ⫸ *¡𝙰𝙲𝙲𝙴𝚂𝙾 𝙳𝙴𝙽𝙴𝙶𝙰𝙳𝙾! 𝙽𝚘 𝚎𝚜𝚝á𝚜 𝚛𝚎𝚐𝚒𝚜𝚝𝚛𝚊𝚍𝚘.*\n\n🧾 𝚄𝚜𝚊: */reg nombre.edad*\n📌 𝙴𝚓𝚎𝚖𝚙𝚕𝚘: */reg Asta.20*',
+  restrict: '「💥 𝚂𝚒𝚜𝚝𝚎𝚖𝚊」 ⫸ *𝙴𝚜𝚝𝚊 𝚏𝚞𝚗𝚌𝚒ó𝚗 𝚎𝚜𝚝á 𝙱𝙻𝙾𝚀𝚄𝙴𝙰𝙳𝙰 𝚐𝚕𝚘𝚋𝚊𝚕𝚖𝚎𝚗𝚝𝚎 𝚙𝚘𝚛 𝚜𝚎𝚐𝚞𝚛𝚒𝚍𝚊𝚍.*'
 }[type];
 if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
-
-// creador del codigo the Carlos estilo ciberpubk XD 
