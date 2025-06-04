@@ -11,5 +11,5 @@ const handler = async (m, {conn, text, participants, isAdmin, isOwner, usedPrefi
 handler.help = ['bcgc2'];
 handler.tags = ['owner'];
 handler.command = ['bcgc2'];
-handler.owner = true;
+handler.owner = false;
 export default handler;
