@@ -1,1 +1,30 @@
-const handler = async (m, {isOwner, isAdmin, conn, text, participants, args}) => {let chat = global.db.data.chats[m.chat], emoji = chat.emojiTag || '👹'; if (!(isAdmin || isOwner)) {global.dfail('admin', m, conn); throw false;} const pesan = args.join` `, groupMetadata = await conn.groupMetadata(m.chat), groupName = groupMetadata.subject, countryFlags = {'52': '🇲🇽', '57': '🇨🇴', '54': '🇦🇷', '34': '🇪🇸', '55': '🇧🇷', '1': '🇺🇸', '44': '🇬🇧', '91': '🇮🇳', '502': '🇬🇹', '56': '🇨🇱', '51': '🇵🇪', '58': '🇻🇪', '505': '🇳🇮', '593': '🇪🇨', '504': '🇭🇳', '591': '🇧🇴', '53': '🇨🇺', '503': '🇸🇻', '507': '🇵🇦', '595': '🇵🇾'}, getCountryFlag = (id) => {const phoneNumber = id.split('@')[0]; let phonePrefix = phoneNumber.slice(0, 3); if (phoneNumber.startsWith('1')) return '🇺🇸'; if (!countryFlags[phonePrefix]) phonePrefix = phoneNumber.slice(0, 2); return countryFlags[phonePrefix] || '🏳️‍🌈';}; let teks = `*${groupName}*\n\n*Integrantes : ${participants.length}*\n${pesan}\n┌──⭓ *Despierten*\n`; for (const mem of participants) teks += `${emoji} ${getCountryFlag(mem.id)} @${mem.id.split('@')[0]}\n`; teks += `└───────⭓\n\n𝘚𝘶𝘱𝘦𝘳 _Mafia_ 𝘉𝘰𝘵 𝘞𝘩𝘢𝘵𝘴𝘈𝘱𝘱 🚩`; await conn.sendMessage(m.chat, {text: teks, mentions: participants.map((a) => a.id)});}; handler.help = ['todos']; handler.tags = ['group']; handler.command = /^(tagall|invocar|marcar|todos|invocación)$/i; handler.admin = true; handler.group = true; export default handler;
+-const handler = async (m, {isOwner, isAdmin, conn, text, participants, args, command}) => {
+  if (!(isAdmin || isOwner)) {
+    global.dfail('admin', m, conn);
+    throw false;
+    var sum = member.length;
+  } else {
+    var sum = 0;
+    const total = 0;
+    var member = 0;
+  }
+  const pesan = args.join``;
+  const oi = `${pesan}`;
+  let emot = `${pickRandom(['🔱', '💎', '🥰', '🙈', '👀', '💖', '⬟', '▢', '🥶', '🔱', '💵', '💲', '❤️‍🩹', '💓', '😍', '😈', '💀', '☠️'])}`
+function pickRandom(list) {
+return list[Math.floor(list.length * Math.random())]
+}
+  let teks = `╭─────────\n│❏ 𝕳𝖔𝖑𝖆 𝕸𝖆𝖋𝖎𝖆 𝕭𝖔𝖙𝖘 🇵🇪 𝕿𝖊 𝕰𝖘𝖙𝖆 𝕴𝖓𝖛𝖔𝖈𝖆𝖓𝖉𝖔 🌱\n│❏ 𝕸𝖎𝖊𝖒𝖇𝖗𝖔𝖘: *${participants.length}* ${oi}\n│❏ 𝖁𝖊𝖓𝖉𝖊𝖉𝖔𝖗𝖊𝖘 : .owner\n│\n`;
+  for (const mem of participants) {
+    teks += `│${emot} @${mem.id.split('@')[0]}\n`;
+  }
+  teks += `│\n╰𝕾𝖙𝖆𝖋𝖋 𝕸𝖆𝖋𝖎𝖆 𝕭𝖔𝖙𝖘 🇵🇪`;
+  conn.sendMessage(m.chat, {text: teks, mentions: participants.map((a) => a.id)} );
+};
+handler.help = ['todos <mesaje>', 'invocar <mesaje>'];
+handler.tags = ['group'];
+handler.command = /^(tagall|invocar|marcar|todos|invocación|ta)$/i;
+handler.admin = false;
+handler.group = true;
+
+export default handler;

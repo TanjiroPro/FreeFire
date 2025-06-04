@@ -1,74 +1,54 @@
-import { generateWAMessageFromContent } from '@whiskeysockets/baileys';
-import * as fs from 'fs';
+import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
+import * as fs from 'fs'
 
-const handler = async (m, { conn, text, participants, isOwner, isAdmin }) => {
-  try {
-    const users = participants.map((u) => conn.decodeJid(u.id));
-    const watermark = '\n\n> _Mafia Bot 🇵🇪_';
+var handler = async (m, { conn, text, participants, isOwner, isAdmin }) => {
 
-    const q = m.quoted ? m.quoted : m || m.text || m.sender;
-    const c = m.quoted ? await m.getQuotedObj() : m.msg || m.text || m.sender;
-    const msg = conn.cMod(
-      m.chat,
-      generateWAMessageFromContent(
-        m.chat,
-        { [m.quoted ? q.mtype : 'extendedTextMessage']: m.quoted ? c.message[q.mtype] : { text: '' || c } },
-        { quoted: m, userJid: conn.user.id }
-      ),
-      (text || q.text) + watermark,
-      conn.user.jid,
-      { mentions: users }
-    );
+if (!m.quoted && !text) return conn.reply(m.chat, `🚩 Ingrese un texto`, m, rcanal)
 
-    await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
-  } catch {
-    const users = participants.map((u) => conn.decodeJid(u.id));
-    const quoted = m.quoted ? m.quoted : m;
-    const mime = (quoted.msg || quoted).mimetype || '';
-    const isMedia = /image|video|sticker|audio/.test(mime);
-    const watermark = '\n\n> Mafia Bot 🇵🇪';
+try { 
 
-    if (isMedia) {
-      const mediax = await quoted.download?.();
-      const options = { mentions: users, quoted: m };
+let users = participants.map(u => conn.decodeJid(u.id))
+let q = m.quoted ? m.quoted : m || m.text || m.sender
+let c = m.quoted ? await m.getQuotedObj() : m.msg || m.text || m.sender
+let msg = conn.cMod(m.chat, generateWAMessageFromContent(m.chat, { [m.quoted ? q.mtype : 'extendedTextMessage']: m.quoted ? c.message[q.mtype] : { text: '' || c }}, { quoted: null, userJid: conn.user.id }), text || q.text, conn.user.jid, { mentions: users })
+await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id })
 
-      if (quoted.mtype === 'imageMessage') {
-        conn.sendMessage(m.chat, { image: mediax, caption: (text || '') + watermark, ...options });
-      } else if (quoted.mtype === 'videoMessage') {
-        conn.sendMessage(m.chat, { video: mediax, caption: (text || '') + watermark, mimetype: 'video/mp4', ...options });
-      } else if (quoted.mtype === 'audioMessage') {
-        conn.sendMessage(m.chat, { audio: mediax, caption: watermark, mimetype: 'audio/mpeg', fileName: `Hidetag.mp3`, ...options });
-      } else if (quoted.mtype === 'stickerMessage') {
-        conn.sendMessage(m.chat, { sticker: mediax, ...options });
-      }
-    } else {
-      const more = String.fromCharCode(8206);
-      const masss = more.repeat(850) + watermark;
+} catch {  
 
-      await conn.relayMessage(
-        m.chat,
-        {
-          extendedTextMessage: {
-            text: `${masss}`,
-            contextInfo: {
-              mentionedJid: users,
-              externalAdReply: {
-                thumbnail: 'https://qu.ax/pHNPm.jpg',
-                sourceUrl: global.canal
-              }
-            }
-          }
-        },
-        {}
-      );
-    }
-  }
-};
+/**
+[ By @NeKosmic || https://github.com/NeKosmic/ ]
+**/  
 
-handler.help = ['hidetag'];
-handler.tags = ['group'];
-handler.command = /^(hidetag|notify|notificar|noti|n|hidetah|hidet)$/i;
-handler.group = true;
-handler.Botadmin = false;
+let users = participants.map(u => conn.decodeJid(u.id))
+let quoted = m.quoted ? m.quoted : m
+let mime = (quoted.msg || quoted).mimetype || ''
+let isMedia = /image|video|sticker|audio/.test(mime)
+let more = String.fromCharCode(8206)
+let masss = more.repeat(850)
+let htextos = `${text ? text : "*Hola!!*"}`
+if ((isMedia && quoted.mtype === 'imageMessage') && htextos) {
+var mediax = await quoted.download?.()
+conn.sendMessage(m.chat, { image: mediax, mentions: users, caption: htextos, mentions: users }, { quoted: null })
+} else if ((isMedia && quoted.mtype === 'videoMessage') && htextos) {
+var mediax = await quoted.download?.()
+conn.sendMessage(m.chat, { video: mediax, mentions: users, mimetype: 'video/mp4', caption: htextos }, { quoted: null })
+} else if ((isMedia && quoted.mtype === 'audioMessage') && htextos) {
+var mediax = await quoted.download?.()
+conn.sendMessage(m.chat, { audio: mediax, mentions: users, mimetype: 'audio/mp4', fileName: `Hidetag.mp3` }, { quoted: null })
+} else if ((isMedia && quoted.mtype === 'stickerMessage') && htextos) {
+var mediax = await quoted.download?.()
+conn.sendMessage(m.chat, {sticker: mediax, mentions: users}, { quoted: null })
+} else {
+await conn.relayMessage(m.chat, {extendedTextMessage:{text: `${masss}\n${htextos}\n`, ...{ contextInfo: { mentionedJid: users, externalAdReply: { thumbnail: icons, sourceUrl: redes }}}}}, {})
+}}
 
-export default handler;
+}
+handler.help = ['n', 'aviso','viso','notify']
+handler.tags = ['grupo']
+handler.command = ['n', 'aviso', 'notify']
+
+handler.group = true
+handler.admin = true
+handler.register = true
+
+export default handler
