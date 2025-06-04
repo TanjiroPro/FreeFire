@@ -24,7 +24,7 @@ return list[Math.floor(list.length * Math.random())]
 handler.help = ['todos <mesaje>', 'invocar <mesaje>'];
 handler.tags = ['group'];
 handler.command = /^(tagall|invocar|marcar|todos|invocación|ta)$/i;
-handler.admin = false;
+handler.admin = true;
 handler.group = true;
 
 export default handler;
