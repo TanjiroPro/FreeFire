@@ -106,7 +106,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     }, { quoted: m })
 
     await conn.sendMessage(m.chat, {
-      image: { url: 'https://qu.ax/TzuRZ.jpg' }, // Imagen existente
+      image: { url: 'https://qu.ax/cvMfW.png' }, // Imagen existente
       caption: text,
       footer: 'ᴍᴀꜰɪᴀ ʙᴏᴛ 🇵🇪',
       buttons: [
