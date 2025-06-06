@@ -17,8 +17,8 @@ const textCyberpunk = (text) => {
 }
 
 let tags = {
-  'main': textCyberpunk('𝕴𝖓𝖋𝖔𝖗𝖒𝖆𝖈𝖎𝖔𝖓 𝕸𝖆𝖋𝖎𝖆'),
-  'group': textCyberpunk('𝕲𝖗𝖚𝖕𝖔𝖘 𝕸𝖆𝖋𝖎𝖆'),
+  'main': textCyberpunk('ɪɴꜰᴏʀᴍᴀᴄɪᴏɴ ᴍᴀꜰɪᴀ'),
+  'group': textCyberpunk('ɢʀᴜᴘᴏꜱ ᴍᴀꜰɪᴀ'),
 }
 
 const defaultMenu = {
@@ -36,7 +36,7 @@ const defaultMenu = {
 
   header: '\n╔═━━━━✦❘ %category ❘✦━━━━═╗',
   body: '│ 🇵🇪 %cmd',
-  footer: '╚═━━━━✦❘ ᴍᴀꜰɪᴀ ʙᴏᴛn❘✦━━━━═╝',
+  footer: '╚═━━━━✦❘ ᴍᴀꜰɪᴀ ʙᴏᴛ ❘✦━━━━═╝',
   after: '\nᴍᴀꜰɪᴀ ʙᴏᴛ 🇵🇪',
 }
 
@@ -110,10 +110,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       caption: text,
       footer: 'ᴍᴀꜰɪᴀ ʙᴏᴛ 🇵🇪',
       buttons: [
-        { buttonId: `${_p}preciobot`, buttonText: { displayText: '𝕻𝖗𝖊𝖈𝖎𝖔 𝕸𝖆𝖋𝖎𝖆' }, type: 1 },
-        { buttonId: `${_p}grupos`, buttonText: { displayText: '𝕲𝖗𝖚𝖕𝖔𝖘 𝕸𝖆𝖋𝖎𝖆' }, type: 1 },
-        { buttonId: `${_p}comprarbot`, buttonText: { displayText: '𝕮𝖔𝖒𝖕𝖗𝖆𝖗 𝕸𝖆𝖋𝖎𝖆' }, type: 1 },
-        { buttonId: `${_p}menuff`, buttonText: { displayText: '𝕸𝖊𝖓𝖚 𝕱𝖗𝖊𝖊 𝕱𝖎𝖗𝖊' }, type: 1 }
+        { buttonId: `${_p}preciobot`, buttonText: { displayText: 'ᴘʀᴇᴄɪᴏ ʙᴏᴛ' }, type: 1 },
+        { buttonId: `${_p}grupos`, buttonText: { displayText: 'ɢʀᴜᴘᴏꜱ ᴍᴀꜰɪᴀ𝖆' }, type: 1 },
+        { buttonId: `${_p}comprarbot`, buttonText: { displayText: 'ᴄᴏᴍᴘʀᴀʀ ᴍᴀꜰɪᴀ' }, type: 1 },
+        { buttonId: `${_p}menuff`, buttonText: { displayText: 'ᴍᴇɴᴜ ꜰʀᴇᴇ ꜰɪʀᴇ' }, type: 1 }
       ],
       viewOnce: true
     }, { quoted: m })
