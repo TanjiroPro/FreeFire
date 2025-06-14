@@ -20,5 +20,8 @@ handler.tags = ['grupo'];
 // regex detect A word without case sensitive
 handler.customPrefix = /a|@/i;
 handler.command = /^(admins|@admins|dmins)$/i;
+handler.botAdmin = false;
+handler.admin = true;
 handler.group = true;
+
 export default handler;

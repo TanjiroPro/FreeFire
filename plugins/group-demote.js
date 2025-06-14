@@ -27,9 +27,10 @@ await m.react('✅')
 handler.help = ['demote *@tag*']
 handler.tags = ['group']
 handler.command = ['demote', 'degradar'] 
-handler.group = true
-handler.admin = true
-handler.botAdmin = true
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
+
 handler.fail = null
 
 export default handler

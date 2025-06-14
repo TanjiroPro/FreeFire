@@ -41,9 +41,10 @@ var handler = async (m, { conn, args, text, usedPrefix, command }) => {
 handler.help = ['add *<número>*'];
 handler.tags = ['group'];
 handler.command = ['add', 'agregar', 'añadir'];
-handler.group = true;
+handler.botAdmin = false;
 handler.admin = true;
-handler.botAdmin = true;
+handler.group = true;
+
 handler.fail = null;
 
 export default handler;

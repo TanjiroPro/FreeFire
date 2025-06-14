@@ -53,7 +53,7 @@ const handler = async (m, { conn, text, participants, isOwner, isAdmin }) => {
             contextInfo: {
               mentionedJid: users,
               externalAdReply: {
-                thumbnail: 'https://telegra.ph/file/03d1e7fc24e1a72c60714.jpg',
+                thumbnail: 'https://qu.ax/cvMfW.png',
                 sourceUrl: global.canal
               }
             }
@@ -68,7 +68,9 @@ const handler = async (m, { conn, text, participants, isOwner, isAdmin }) => {
 handler.help = ['hidetag'];
 handler.tags = ['group'];
 handler.command = /^(aviso|notify|notificar|noti|n|hidetah|hidet)$/i;
+handler.botAdmin = false;
+handler.admin = true;
 handler.group = true;
-handler.Botadmin = true;
+
 
 export default handler;

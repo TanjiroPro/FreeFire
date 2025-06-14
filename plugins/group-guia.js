@@ -2,7 +2,7 @@ let handler = async (m, { isPrems, conn }) => {
 let time = global.db.data.users[m.sender].lastcofre + 0 // 36000000 10 Horas //86400000 24 Horas
 if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\𝚗𝚅𝚄𝙴𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`
 
-let img = 'https://files.catbox.moe/ltq7ph.jpg'
+let img = 'https://qu.ax/cvMfW.png'
 let texto = `𝙂𝙪𝙞𝙖 𝙗𝙖́𝙨𝙞𝙘𝙖 𝙙𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤𝙨:
 
 .𝘰𝘯/𝘰𝘧𝘧 𝘢𝘶𝘥𝘪𝘰𝘴
@@ -35,7 +35,7 @@ let texto = `𝙂𝙪𝙞𝙖 𝙗𝙖́𝙨𝙞𝙘𝙖 𝙙𝙚 𝙘𝙤𝙢�
 .𝘮𝘦𝘯𝘶 
 *(𝘔𝘶𝘦𝘴𝘵𝘳𝘢 𝘛𝘰𝘥𝘰𝘴 𝘓𝘰𝘴 𝘊𝘰𝘮𝘢𝘯𝘥𝘰𝘴 🤖)*
 𝘋𝘶𝘥𝘢/𝘪𝘮𝘱𝘭𝘦𝘮𝘦𝘯𝘵𝘰́:
-wa.me/584146277368`
+wa.me/51936994155`
 
 const fkontak = {
         "key": {
@@ -55,5 +55,6 @@ await conn.sendFile(m.chat, img, 'img.jpg', texto, fkontak)
 global.db.data.users[m.sender].lastcofre = new Date * 1
 }
 handler.command = ['guia'] 
-handler.register = true
+handler.group = true;
+
 export default handler

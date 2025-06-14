@@ -10,7 +10,8 @@ let handler = async (m, { conn, text, usedPrefix, command, participants }) => {
 handler.tags = ['group']
 handler.help = ['encuesta *<pregunta|opciones>*']
 handler.command = ['encuesta', 'poll']
-handler.group = true
-handler.register = true 
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
 
 export default handler

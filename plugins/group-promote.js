@@ -32,8 +32,9 @@ let handler = async (m, {conn, usedPrefix, text}) => {
 handler.help = ["*593xxx*", "*@usuario*", "*responder chat*"].map((v) => "promote " + v);
 handler.tags = ["group"];
 handler.command = /^(promote|daradmin|darpoder)$/i;
-handler.group = true;
+handler.botAdmin = false;
 handler.admin = true;
-handler.botAdmin = true;
+handler.group = true;
+
 handler.fail = null;
 export default handler;

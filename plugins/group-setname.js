@@ -14,6 +14,8 @@ const handler = async (m, {conn, args, text}) => {
 handler.help = ['setname <text>'];
 handler.tags = ['grupo'];
 handler.command = /^(setname)$/i;
-handler.group = true;
+handler.botAdmin = false;
 handler.admin = true;
+handler.group = true;
+
 export default handler;

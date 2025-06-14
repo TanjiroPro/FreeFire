@@ -11,8 +11,9 @@ m.reply(`📨 Se envió un enlace de invitación al usuario.`)
 handler.help = ['invite *<numero>*']
 handler.tags = ['grupo']
 handler.command = ['invite', 'invitar'] 
-handler.group = true
-//handler.admin = true
-handler.botAdmin = true
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
+
 
 export default handler

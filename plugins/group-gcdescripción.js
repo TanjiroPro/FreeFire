@@ -5,7 +5,8 @@ const handler = async (m, {conn, args}) => {
 handler.help = ['groupdesc <text>'];
 handler.tags = ['grupo'];
 handler.command = ['gpdesc', 'groupdesc']
-handler.group = true;
+handler.botAdmin = false;
 handler.admin = true;
-handler.botAdmin = true;
+handler.group = true;
+
 export default handler;
