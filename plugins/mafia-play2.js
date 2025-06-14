@@ -170,6 +170,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 handler.help = ['ytmp4 <URL>'];
 handler.command = ['ytmp4'];
 handler.tags = ['descargas'];
-handler.diamond = true;
+handler.diamond = false;
 
 export default handler;

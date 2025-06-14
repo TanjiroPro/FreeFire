@@ -71,7 +71,10 @@ await conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, { mentions: [...gro
 //await conn.sendButton(m.chat, wm, text, pp, [[lenguajeGB.smsGI10(), '.on'], [lenguajeGB.smsConMenu(), '/menu']], m, { mentions: [...groupAdmins.map(v => v.id), owner] })
 }
 handler.help = ['guerra']
-handler.tags = ['freefire']
-handler.command = /^(guerra|guerradeclanes)$/i
-handler.group = true
+handler.tags = ['freefireeu']
+handler.command = /^(guerra)$/i
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
+
 export default handler

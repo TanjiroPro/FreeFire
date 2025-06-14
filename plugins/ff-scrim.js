@@ -26,8 +26,9 @@ if (!args[0]) throw `
 ` 
 }
 handler.help = ['scrim']
-handler.tags = ['freefire']
+handler.tags = ['freefireeu']
 handler.command = /^(scrim)$/i
-handler.group = true
-handler.admin = true
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
 export default handler

@@ -1,7 +1,7 @@
 const handler = async (m, { conn, args }) => {
     // Verificar si se proporcionaron los argumentos necesarios
     if (args.length < 2) {
-        conn.reply(m.chat, 'Debes proporcionar la hora (HH:MM) y el país (MX, CO, CL, AR).', m);
+        conn.reply(m.chat, 'Debes proporcionar la hora (HH:MM) y el país (MX, CO).', m);
         return;
     }
 
@@ -19,12 +19,10 @@ const handler = async (m, { conn, args }) => {
     const diferenciasHorarias = {
         MX: 0, // México tiene la misma hora
         CO: 1, // Colombia tiene una hora más
-        CL: 2, // Chile tiene dos horas más
-        AR: 3  // Argentina tiene tres horas más
     };
 
     if (!(pais in diferenciasHorarias)) {
-        conn.reply(m.chat, 'País no válido. Usa MX para México, CO para Colombia, CL para Chile o AR para Argentina.', m);
+        conn.reply(m.chat, 'País no válido. Usa MX para México, CO para Colombia.', m);
         return;
     }
 
@@ -60,8 +58,6 @@ const handler = async (m, { conn, args }) => {
 
 🇲🇽 𝐌𝐄𝐗𝐈𝐂𝐎 : ${formatTime(horasEnPais[0])}
 🇨🇴 𝐂𝐎𝐋𝐎𝐌𝐁𝐈𝐀 : ${formatTime(horasEnPais[1])}
-🇨🇱 𝐂𝐇𝐈𝐋𝐄 : ${formatTime(horasEnPais[2])}
-🇦🇷 𝐀𝐑𝐆𝐄𝐍𝐓𝐈𝐍𝐀 : ${formatTime(horasEnPais[3])}
 
 𝐇𝐎𝐑𝐀 𝐀𝐂𝐓𝐔𝐀𝐋 𝐄𝐍 𝐌𝐄𝐗𝐈𝐂𝐎🇲🇽 : ${horaActual}
 
@@ -87,6 +83,10 @@ const handler = async (m, { conn, args }) => {
     conn.sendMessage(m.chat, { text: message }, { quoted: m });
 };
 handler.help = ['interna4']
-handler.tags = ['freefire']
-handler.command = /^(interno4|invs4|interna4)$/i;
+handler.tags = ['freefireeu']
+handler.command = /^(interna4)$/i;
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
+
 export default handler;

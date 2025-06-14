@@ -59,11 +59,16 @@ const handler = async (m, { conn, args }) => {
     ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄:
     🥷🏻 ┇ 
     🥷🏻 ┇
-    `.trim();
+        `.trim();
 
     conn.sendMessage(m.chat, {text: message}, {quoted: m});
 };
 handler.help = ['cuadrilatero']
-handler.tags = ['freefire']
-handler.command = /^(cuadri|cuadrilatero)$/i;
+handler.tags = ['freefireeu']
+handler.command = /^(cuadrilatero)$/i;
+handler.botAdmin = false;
+handler.admin = true;
+handler.group = true;
+
+export default handler
 export default handler;
