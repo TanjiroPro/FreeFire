@@ -16,40 +16,76 @@ const handler = async (m, { conn, args }) => {
     if (horaUsuarioSplit.length === 2) {
         const horaNumerica = parseInt(horaUsuarioSplit[0], 10);
         const minutoNumerico = parseInt(horaUsuarioSplit[1], 10);
-        const horaAdelantadaNumerica = horaNumerica + 2; // Adelantar 1 hora
+        const horaAdelantadaNumerica = horaNumerica + 1; // Adelantar 1 hora
         horaAdelantada = `${horaAdelantadaNumerica.toString().padStart(2, '0')}:${minutoNumerico.toString().padStart(2, '0')}`;
     }
 
     const message = `
-    • 𝐒𝐂𝐑𝐈𝐌 •
 
-⏱ 𝐇𝐎𝐑𝐀𝐑𝐈𝐎                       •
+*24 𝐕𝐄𝐑𝐒𝐔𝐒 24*
+
+    𝐇𝐎𝐑𝐀𝐑𝐈𝐎
     🇵🇪 𝐏𝐄𝐑𝐔 : ${horaUsuario}
-    🇦🇷 𝐀𝐑𝐆 : ${horaAdelantada}          
+    🇦🇷 𝐀𝐑𝐆 : ${horaAdelantada}
 
 ➥ 𝐌𝐎𝐃𝐀𝐋𝐈𝐃𝐀𝐃: 
 ➥ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
 
-      𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 
+         𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1
     
     👑 ┇ 
     🥷🏻 ┇  
     🥷🏻 ┇ 
-    🥷🏻 ┇  
+    🥷🏻 ┇ 
+          
+         𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 2
+    
+    👑 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+
+         𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 3
+    
+    👑 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+
+         𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 4
+    
+    👑 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+
+         𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 5
+    
+    👑 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+
+         𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 6
+    
+    👑 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
     
     ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒:
     🥷🏻 ┇ 
-    🥷🏻 ┇
+    🥷🏻 ┇                 
                  
     `.trim();
 
     conn.sendMessage(m.chat, {text: message}, {quoted: m});
 };
-handler.help = ['scrim1']
+handler.help = ['vs24']
 handler.tags = ['freefire']
-handler.command = /^(scrim1)$/i;
+handler.command = /^(vs24)$/i;
 handler.botAdmin = false;
 handler.admin = true;
 handler.group = true;
 
-export default handler;
+export default handler

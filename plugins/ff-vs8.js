@@ -21,33 +21,38 @@ const handler = async (m, { conn, args }) => {
     }
 
     const message = `
-    • 𝐒𝐂𝐑𝐈𝐌 •
-
-⏱ 𝐇𝐎𝐑𝐀𝐑𝐈𝐎                       •
+    _*8 Versus 8*_
+    
+     𝐇𝐎𝐑𝐀𝐑𝐈𝐎
     🇵🇪 𝐏𝐄𝐑𝐔 : ${horaUsuario}
-    🇦🇷 𝐀𝐑𝐆 : ${horaAdelantada}          
+    🇦🇷 𝐀𝐑𝐆 : ${horaAdelantada}
 
-➥ 𝐌𝐎𝐃𝐀𝐋𝐈𝐃𝐀𝐃: 
-➥ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
-
-      𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 
+    ¬ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒 𝐏𝐑𝐄𝐒𝐄𝐍𝐓𝐄𝐒
+    
+          𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1
     
     👑 ┇ 
     🥷🏻 ┇  
     🥷🏻 ┇ 
-    🥷🏻 ┇  
+    🥷🏻 ┇ 
     
-    ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒:
+           𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 2
+           
+     👑 ┇       
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    
+    ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄:
     🥷🏻 ┇ 
     🥷🏻 ┇
-                 
     `.trim();
 
     conn.sendMessage(m.chat, {text: message}, {quoted: m});
 };
-handler.help = ['scrim1']
+handler.help = ['vs8']
 handler.tags = ['freefire']
-handler.command = /^(scrim1)$/i;
+handler.command = /^(vs8)$/i;
 handler.botAdmin = false;
 handler.admin = true;
 handler.group = true;

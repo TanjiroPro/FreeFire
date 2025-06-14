@@ -1,5 +1,9 @@
 const handler = async (m, { conn, args }) => {
     // Verificar si se proporcionaron los argumentos necesarios
+    if (args.length < 2) {
+        conn.reply(m.chat, '_Debes proporcionar la hora (HH:MM) y el color de ropa._', m);
+        return;
+    }
 
     // Validar el formato de la hora
     const horaRegex = /^([01]\d|2[0-3]):?([0-5]\d)$/;
@@ -9,6 +13,7 @@ const handler = async (m, { conn, args }) => {
     }
 
     const horaUsuario = args[0]; // Hora proporcionada por el usuario
+    const colorRopa = args.slice(1).join(' '); // Color de ropa proporcionado por el usuario
 
     // Calcular la hora adelantada
     const horaUsuarioSplit = horaUsuario.split(':');
@@ -21,35 +26,49 @@ const handler = async (m, { conn, args }) => {
     }
 
     const message = `
-    • 𝐒𝐂𝐑𝐈𝐌 •
-
-⏱ 𝐇𝐎𝐑𝐀𝐑𝐈𝐎                       •
+    _*CUADRILATERO*_
+    
+    𝐇𝐎𝐑𝐀𝐑𝐈?
     🇵🇪 𝐏𝐄𝐑𝐔 : ${horaUsuario}
-    🇦🇷 𝐀𝐑𝐆 : ${horaAdelantada}          
+    🇦🇷 𝐀𝐑𝐆 : ${horaAdelantada}
+    𝐂𝐎𝐋𝐎𝐑 𝐃𝐄 𝐑𝐎𝐏𝐀: ${colorRopa}
 
-➥ 𝐌𝐎𝐃𝐀𝐋𝐈𝐃𝐀𝐃: 
-➥ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
-
-      𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 
+    ¬ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒 𝐏𝐑𝐄𝐒𝐄𝐍𝐓𝐄𝐒
+    
+          𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 1
     
     👑 ┇ 
     🥷🏻 ┇  
     🥷🏻 ┇ 
-    🥷🏻 ┇  
+    🥷🏻 ┇ 
+          
+         𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 2
     
-    ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒:
+    👑 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+
+         𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 3
+    
+    👑 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    🥷🏻 ┇ 
+    
+    ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄:
     🥷🏻 ┇ 
     🥷🏻 ┇
-                 
-    `.trim();
+        `.trim();
 
     conn.sendMessage(m.chat, {text: message}, {quoted: m});
 };
-handler.help = ['scrim1']
+handler.help = ['cuadri']
 handler.tags = ['freefire']
-handler.command = /^(scrim1)$/i;
+handler.command = /^(cuadri)$/i;
 handler.botAdmin = false;
 handler.admin = true;
 handler.group = true;
 
+export default handler
 export default handler;
