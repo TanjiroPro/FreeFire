@@ -45,9 +45,9 @@ const handler = async (m, { conn, args }) => {
 
     conn.sendMessage(m.chat, {text: message}, {quoted: m});
 };
-handler.help = ['8vs8']
+handler.help = ['scrim']
 handler.tags = ['freefireeu']
-handler.command = /^(8vs8)$/i;
+handler.command = /^(scrim)$/i;
 handler.botAdmin = false;
 handler.admin = true;
 handler.group = true;
