@@ -10,8 +10,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     let mime = (q.msg || q).mimetype || q.mediaType || ''
 
     if (/webp|image|video/g.test(mime)) {
-      if (/video/g.test(mime) && (q.msg || q).seconds > 15) {
-        return m.reply(`${emoji} ¡El video no puede durar más de 15 segundos!...`)
+      if (/video/g.test(mime) && (q.msg || q).seconds > 30) {
+        return m.reply(`${emoji} ¡El video no puede durar más de 30 segundos!...`)
       }
 
       let img = await q.download?.()
