@@ -9,6 +9,6 @@ await m.react('✅')
 handler.help = ['update']
 handler.tags = ['owner']
 handler.command = ['update', 'actualizar', 'fix', 'fixed'] 
-handler.admin = true
+handler.admin = false
 
 export default handler
